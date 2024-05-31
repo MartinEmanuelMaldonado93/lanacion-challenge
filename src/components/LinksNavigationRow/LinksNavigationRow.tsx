@@ -15,7 +15,7 @@ export default function LinksNavigationRow() {
   );
 }
 
-function AnchorItem({ tag }: { tag: TagsDisplay }) {
+function AnchorItem({ tag }: Readonly<{ tag: TagsDisplay }>) {
   return (
     <a href={`/tema/${tag.slug}`} className="">
       {tag.text} {tag.count}

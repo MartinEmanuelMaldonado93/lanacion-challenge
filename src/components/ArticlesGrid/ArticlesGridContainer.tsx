@@ -6,16 +6,13 @@ export default function ArticlesGridContainer() {
   return (
     <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
       {newsState.map((n, i) => (
-        <ArticleItem
-          key={i}
-          news={n}
-        />
+        <ArticleItem key={i + n._id} news={n} />
       ))}
     </section>
   );
 }
 
-function ArticleItem({ news }: { news: News }) {
+function ArticleItem({ news }: Readonly<{ news: News }>) {
   return (
     <article className="mod-caja-nota lugares w-100-mobile">
       <section id="" className="cont-figure">

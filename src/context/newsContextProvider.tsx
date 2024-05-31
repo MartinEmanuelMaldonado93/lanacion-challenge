@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { ApiNewsService } from "@api";
 import { NewsContext } from "./newsContext";
 import { filterBySubtype } from "./utils";
@@ -14,8 +14,13 @@ export function NewsContextProvider({
       setNewsState(newsStateSubtype7);
     });
   }, []);
+
+  const memoizedContext = useMemo(
+    () => ({ newsState, setNewsState }),
+    [newsState]
+  );
   return (
-    <NewsContext.Provider value={{ newsState, setNewsState }}>
+    <NewsContext.Provider value={memoizedContext}>
       {children}
     </NewsContext.Provider>
   );

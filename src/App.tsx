@@ -1,11 +1,7 @@
 import MainNews from "./pages/MainNews";
 
 function App() {
-  return (
-    <>
-      <MainNews />
-    </>
-  );
+  return <MainNews />;
 }
 
 export default App;
