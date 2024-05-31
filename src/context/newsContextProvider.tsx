@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import { getDataNews } from "../utils/fakeEndpoint";
+import { ApiNewsService } from "@api";
 import { NewsContext } from "./newsContext";
 import { filterBySubtype } from "./utils";
 
@@ -9,7 +9,7 @@ export function NewsContextProvider({
   const [newsState, setNewsState] = useState([] as News[]);
 
   useEffect(() => {
-    getDataNews().then(({ articles }) => {
+    ApiNewsService.getDataNews().then(({ articles }) => {
       const newsStateSubtype7 = articles.filter(filterBySubtype);
       setNewsState(newsStateSubtype7);
     });

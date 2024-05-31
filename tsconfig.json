@@ -21,7 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@context": ["./src/context"],
-      "@components": ["./src/components"]
+      "@components": ["./src/components"],
+      "@api": ["./src/api"]
     }
   },
   "include": ["src"],
