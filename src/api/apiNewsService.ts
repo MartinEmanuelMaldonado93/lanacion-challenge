@@ -10,14 +10,16 @@ export class ApiNewsService {
       }, Math.max(1000, 2000 * Math.random()));
     });
   }
+
   static async getDataNews(): Promise<{ articles: News[] }> {
     const response = await fetch(BASE_URL);
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
     }
-    const data = await response.json() as unknown as object;
+    const data = (await response.json()) as unknown as object;
 
-    if(!Object.prototype.hasOwnProperty.call(data, 'articles'))throw new Error(`Error: schema from server is not correct.`);
+    if (!Object.prototype.hasOwnProperty.call(data, "articles"))
+      throw new Error(`Error: schema from server is not correct.`);
 
     return data as { articles: News[] };
   }

@@ -1,10 +1,11 @@
 import { NewsContext } from "@context";
 import { useContext } from "react";
 
+/** this hook is public to all components to consume the context */
 export function useNewsContext() {
-  const { newsState, setNewsState } = useContext(NewsContext);
-  if (newsState === undefined || setNewsState === undefined)
+  const query = useContext(NewsContext);
+  if (query === undefined)
     throw new Error("El hook debe utilizarse dentro del news provider");
 
-  return [newsState, setNewsState] as const;
+  return query;
 }
