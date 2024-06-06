@@ -23,7 +23,8 @@
       "@context": ["./src/context"],
       "@components": ["./src/components"],
       "@api": ["./src/api"]
-    }
+    },
+    "types": ["vitest/globals"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
